@@ -1,0 +1,11 @@
+<header id="header">
+    <i class="fa-solid fa-bars" id="menu-opener" onclick="openingMenue()"></i>
+    <a href="#"><i class="fa-solid fa-user" id="link-admin"></i></a>
+    <nav id="navbar">
+        <ul>
+            {% if app.user and app.user.username=='Admin' %}<li><a href="{{ path('admin') }}">Administration <i class="fa-solid fa-arrow-right"></i></a></li>{% endif %}
+           {% if not app.user %}<li><a href="{{ path('app_register') }}">Inscription <i class="fa-solid fa-arrow-right"></i></a></li>{% endif %}
+            <li><a href="{% if app.user %}{{ path('app_logout') }}{% else %}{{ path('app_login') }}{% endif %}">{% if app.user %}Déconnexion{% else %}Connexion{% endif%} <i class="fa-solid fa-arrow-right"></i></a></li>
+        </ul>
+    </nav>
+</header>

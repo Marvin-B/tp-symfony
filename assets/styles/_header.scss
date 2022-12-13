@@ -1,0 +1,52 @@
+body {
+  @include mixMarges($margin:15vh 0 0 0);
+  font-family:"Roboto", sans-serif;
+
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    a{
+      @include mixLinks();
+      svg {
+        &#link-admin {
+          font-size: 2rem;
+          position: fixed;
+          top: 9px;
+          left: 9px;
+        }
+      }
+    }
+    svg{
+      &#menu-opener {
+        font-size: 2rem;
+        position: fixed;
+        top: 9px;
+        left: 9px;
+        display: none;
+      }
+    }
+    nav {
+      background-color: $colUltraClair;
+      height: 10vh;
+      border-bottom: 5px solid $colClair;
+      ul {
+        @include mixFlex($justifyContent: flex-end);
+        @include mixMarges();
+        height: 100%;
+        li {
+          list-style: none;
+          @include mixMarges($margin: 9px 9px 9px 9px);
+          a {
+            text-decoration: none;
+            color: $colFonce;
+            height: 100%;
+            width: 100%;
+            @include mixMarges($padding: 9px 9px 9px 9px);
+            @include mixButton();
+          }
+        }
+      }
+    }
+  }
+}

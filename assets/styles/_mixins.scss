@@ -1,0 +1,38 @@
+@mixin mixFlex($alignItem : center, $justifyContent: center, $flexDirection: row){
+  display: flex;
+  align-items: $alignItem;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+}
+
+@mixin mixMarges($margin: 0 0 0 0, $padding: 0 0 0 0){
+  margin: $margin;
+  padding: $padding;
+}
+
+@mixin mixButton($borderRadius : 4px, $borderColor: $colFonce, $borderSize: 2px, $borderType: solid){
+  border : $borderSize $borderType $borderColor;
+  border-radius: $borderRadius;
+  transition:.3s;
+  &:hover{
+    transition: .3s;
+    background-color:$colFonce;
+    color:$colUltraClair;
+  }
+}
+
+@mixin mixLinks($textDecoration:none, $colorHover: $colClair, $color: $colFonce, $transition:.2s){
+  text-decoration: $textDecoration;
+  color:$color;
+  transition:$transition;
+  &:hover{
+    color:$colorHover;
+    transition:$transition;
+  }
+}
+
+@mixin mixFont($fontSize: 1rem, $color: $colFonce, $textAlign: center){
+  font-size: $fontSize;
+  color: $color;
+  text-align: $textAlign;
+}

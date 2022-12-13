@@ -1,0 +1,17 @@
+html{
+
+  // Chrome
+  &::-webkit-scrollbar{
+    width: 10px;
+    background-color: $colFonce;
+  }
+  &::-webkit-scrollbar-thumb{
+    background:$colClair;
+    border-radius: 10px;
+  }
+
+  // Firefox
+  scrollbar-color: $colFonce $colClair;
+  scrollbar-width: auto;
+  scrollbar-gutter: stable;
+}

@@ -1,0 +1,17 @@
+// Titres
+
+h1{
+  @include mixFont($fontSize:2.5rem);
+}
+
+body{
+  div#main{
+    min-height:120vh;
+  }
+}
+
+// Style mentions légales
+
+section#mentions-legales{
+  font-weight:300;
+}
