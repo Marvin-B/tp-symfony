@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1> Bienvenue sur ce magnifique forum{% if app.user %}, {{ app.user.username }} {% endif %}! </h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h2> Checklist </h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/travail-a-rendre/src/Controller/AccueilController.php'|file_link(0) }}">src/Controller/AccueilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/travail-a-rendre/templates/accueil/index.html.twig'|file_link(0) }}">templates/accueil/index.html.twig</a></code></li>
-    </ul>
-</div>
+<ul>
+<li>Inscription, connexion, déconnexion <i class="fa-solid fa-check" style="color:green"></i></li>
+<li>Création de message dans les catégories du forum <i class="fa-solid fa-check" style="color:green"></i></li>
+<li>Possibilité de répondre à un message <i class="fa-solid fa-xmark" style="color:red"></i></li></li>
+<li>Une recherche simple <i class="fa-solid fa-check" style="color:green"></i></li></li>
+<li>Liste des catégories, sous catégories, et messages associés <i class="fa-solid fa-xmark" style="color:red"></i></li></li>
+<li>Administration : Création des catégories et sous-catégories, administration des messages <i class="fa-solid fa-check" style="color:green"></i></li> 
+<li>Il y aura 2 niveaux d'accès : Administrateur,  membre (possibilité de créer un message ou de modifier ses messages) <i class="fa-solid fa-xmark" style="color:red"></i></li></li>
+<li>Un message pourra intégrer des fichiers (images a minima) <i class="fa-solid fa-xmark" style="color:red"></i></li>
+</ul>
+
 {% endblock %}

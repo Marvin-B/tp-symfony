@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+{% if app.request.method == 'POST' %}
+    <div>
+        {% if articles | length == 0 %}
+            <h4>Aucun résulat pour votre recherche.</h4>
+           {% else %}
+               <h1>Vos résulats de recherche :</h1>
+               <div class="ensemble-articles">
+               {% for article in articles %}
+                   <div>
+                       {# <a href="{{ path('article_show', {'slug': article.slug}) }}"> #}
+                              <h2>{{ article.titre }}</h2>
+                                <p class="text-secondary">{{ article.message}}</p>
+
+                                <span class="lirelasuite"><a href="{{ path('app_article', {'id': article.id}) }}">Lire la suite</a></span>
+                       {# </a> #}
+                   </div>
+              {% endfor %}
+              </div>
+          {% endif %}
+     </div>
+{% endif %}
+{% endblock %}

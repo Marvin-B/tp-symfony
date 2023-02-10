@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Categorie;
+use App\Entity\SousCategorie;
+use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -31,6 +34,7 @@ class AdminController extends AbstractDashboardController
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
         // return $this->render('some/path/my-dashboard.html.twig');
+
     }
 
     public function configureDashboard(): Dashboard
@@ -41,7 +45,17 @@ class AdminController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Panneau d\'administration', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        // Menu
+        yield MenuItem::section('BASE DE DONNEES');
+        yield MenuItem::linkToDashboard('Utilisateurs','fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Sous catégories','fas fa-list-alt', SousCategorie::class);
+        yield MenuItem::linkToCrud('Articles','far fa-newspaper', Article::class);
+
+
+        // Divider
+        yield MenuItem::section('RETOUR AU SITE');
+        // Retour accueil
+        yield MenuItem::linkToUrl('Retour au site', 'fas fa-home', '/');
     }
 }

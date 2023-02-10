@@ -6,6 +6,20 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
+    button.button{
+      @include mixButton();
+      background: transparent;
+    }
+    div#form{
+      display:flex;
+    }
+    span#nav-title{
+      position:absolute;
+      top:9px;left:9px;
+      font-family: Roboto;
+      color: $colFonce;
+      font-size: 30px;
+    }
     a{
       @include mixLinks();
       svg {
@@ -44,6 +58,22 @@ body {
             width: 100%;
             @include mixMarges($padding: 9px 9px 9px 9px);
             @include mixButton();
+          }
+        }
+        &#liste_categories{
+          flex-direction: column;
+          position: absolute;
+          padding-top:11px;
+          display: none;
+          &.open{
+            display:block;
+          }
+          li{
+            background-color:$colUltraClair;
+            @include mixMarges($margin:0px);
+            a{
+              @include mixButton($borderSize:0px)
+            }
           }
         }
       }

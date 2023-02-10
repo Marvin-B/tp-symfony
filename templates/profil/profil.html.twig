@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil : {{user.username}} {% endblock %}
+
+{% block body %}
+    <h1>Profil de {{user.username}}/h1>
+ {# Modifier le nom d'utilisateur #}
+    <form action="{{path('user_edit', {'id': user.id})}}" method="post">
+        <input type="text" name="username" value="{{user.username}}">
+        <input type="submit" value="Modifier">
+    </form>
+ {# Modifier le mot de passe #}
+    <form action="{{path('user_edit', {'id': user.id})}}" method="post">
+        <input type="password" name="password" placeholder="Nouveau mot de passe">
+        <input type="password" name="password_confirm" placeholder="Confirmer le mot de passe">
+        <input type="submit" value="Modifier">
+    </form>
+ {# Supprimer le compte #}
+    <form action="{{path('user_delete', {'id': user.id})}}" method="post">
+        <input type="submit" value="Supprimer le compte">
+    </form>
+{% endblock %}

@@ -1,10 +1,20 @@
 <header id="header">
     <i class="fa-solid fa-bars" id="menu-opener" onclick="openingMenue()"></i>
-    <a href="#"><i class="fa-solid fa-user" id="link-admin"></i></a>
+    <span id="nav-title"><a href={{path('app_accueil')}}>Symfony - Forum</a></span>
     <nav id="navbar">
         <ul>
-            {% if app.user and app.user.username=='Admin' %}<li><a href="{{ path('admin') }}">Administration <i class="fa-solid fa-arrow-right"></i></a></li>{% endif %}
+            {# <li id="listeCategories"><a href="#">Catégorie <i class="fa-solid fa-arrows-up-down"></i></a></li> #}
+            <li><a onclick="displayCategories()">Catégorie <i class="fa-solid fa-arrows-up-down"></i></a>
+                {{ render(controller('App\\Controller\\CategorieController::listCategories')) }}
+            </li>
+
+            {#Barre de recherche #}
+            {{ render(controller('App\\Controller\\SearchController::searchBar')) }}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin') }}"><i class="fa-solid fa-gears"></i></a></li>
+            {% endif %}
            {% if not app.user %}<li><a href="{{ path('app_register') }}">Inscription <i class="fa-solid fa-arrow-right"></i></a></li>{% endif %}
+           {% if app.user %}<li><span class="username">{{app.user.username}}</span class="voir-profil"> <a href="{{path('app_profil')}}" class="button">Mon profil <i class="fa-solid fa-arrow-right"></i></a></span></li>{% endif %}
             <li><a href="{% if app.user %}{{ path('app_logout') }}{% else %}{{ path('app_login') }}{% endif %}">{% if app.user %}Déconnexion{% else %}Connexion{% endif%} <i class="fa-solid fa-arrow-right"></i></a></li>
         </ul>
     </nav>

@@ -25,3 +25,8 @@ function openingMenue(){
         document.getElementById("menu-opener").classList.add("open");
     }
 }
+
+function displayCategories() {
+    console.log('ok');
+    document.getElementById("liste_categories").classList.toggle("open");
+}

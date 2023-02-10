@@ -17,7 +17,9 @@
     </head>
     <body>
         {% block header %}{% include '_header.html.twig' %}{% endblock %}
+        <div id="content">
         {% block body %}{% endblock %}
+        </div>
         {% block footer %}{% include '_footer.html.twig' %}{% endblock %}
         {% block scripts %}
             <script src="{{ asset('assets/js/custom.js') }}"></script>

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{categorie}}{% endblock %}
+
+{% block body %}
+<h1>{{categorie}}</h1>
+<h2>Sous catégories</h2>
+<div class="ensemble-sous_categories">
+{% for souscategorie in souscategories %}
+{% if souscategorie.categorie == categorie %}
+    <span>{{souscategorie.nom}}</span>
+{% endif %}
+{% endfor %}
+</div>
+</h2>
+<h2> Articles </h2>
+<div class='ensemble-articles'>
+{% for article in articles %}
+{% if article.categorie == categorie %}
+    <div>
+        {# Si utilisateur admin, afficher les boutons #}
+        {% if app.user and app.user.username=='admin' %}
+            <admin>
+                <span class="icon"><i class="fa-solid fa-trash"></i></span>
+                <span class="icon"><i class="fa-solid fa-edit"></i></span>
+            </admin>
+        {% endif %}
+        <h3>{{article.titre}}</h3>
+        <p>{{article.message}}</p>
+        <span class="lirelasuite"><a href="{{ path('app_article', {'id': article.id}) }}">Lire la suite</a></span>
+    </div>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}

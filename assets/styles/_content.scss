@@ -5,8 +5,8 @@ h1{
 }
 
 body{
-  div#main{
-    min-height:120vh;
+  div#content{
+    min-height:90vh;
   }
 }
 
@@ -14,4 +14,57 @@ body{
 
 section#mentions-legales{
   font-weight:300;
+}
+
+// Page des catégories
+
+div.ensemble-sous_categories{
+  display:flex;
+  justify-content:flex-start;
+  grid-gap:1rem;
+  margin: auto 1rem;
+  span{
+    @include mixButton();
+    padding:1rem;
+  }
+}
+
+div.ensemble-articles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-gap:1rem;
+  margin: auto 1rem;
+  admin{
+    display:flex;
+    grid-gap:1rem;
+    justify-content:flex-end;
+    span{
+      &:hover{
+        color:$colClair;
+        cursor:pointer; 
+      }
+    }
+  }
+  div{
+    padding:1rem;
+    border: 3px solid $colClair ;
+    box-shadow: 3px 3px 0px $colStrong;
+    h3{
+      @include mixFont($fontSize:1.5rem);
+    }
+    p{
+      @include mixFont($fontSize:1rem, $textAlign:justify);
+      max-height:2.5rem;
+      overflow: hidden;
+    }
+    span.lirelasuite{
+      @include mixFont($fontSize:1rem, $textAlign:right);
+      display: block;
+      border-top:1px solid $colClair;
+      padding-top:.5rem;
+      a{
+        @include mixLinks();
+      }
+    }
+  }
 }

@@ -1,0 +1,5 @@
+<ul id="liste_categories">
+{% for category in categories %}
+    <li><a href="{{path('app_categorie_index')}}categorie/{{ category.id }}">{{ category.nom}} <i class="fa-solid fa-arrow-right"></i></a></li>
+{% endfor %}
+</ul>   
