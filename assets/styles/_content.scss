@@ -10,6 +10,12 @@ body{
   }
 }
 
+div.divider{
+  margin: 2rem 0 0 0;
+  border-bottom: 1px solid $colClair;
+  width: 20vw;
+}
+
 // Style mentions légales
 
 section#mentions-legales{
@@ -26,6 +32,16 @@ div.ensemble-sous_categories{
   span{
     @include mixButton();
     padding:1rem;
+  }
+}
+
+div.add-article{
+  margin: 2rem 0 0 1rem;
+  a.button{
+    @include mixButton();
+    padding:1rem;
+    text-decoration:none;
+    color: $colFonce;
   }
 }
 

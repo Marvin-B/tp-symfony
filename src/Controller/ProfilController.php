@@ -23,17 +23,25 @@ class ProfilController extends AbstractController
             return $this->redirectToRoute('app_login');
         } else{
             $user = $this->getUser();
-            return $this->redirectToRoute('app_profil_show', ['id' => $user->getId()]);
+            return $this->render('profil/profil.html.twig', [
+                'user' => $user,
+            ]);
         }
-    }   
-
-    // Profil utilisateur, avec pseudo, role et mot de passe
-    #[Route('/{id}', name: 'app_profil_show')]
-
-    public function show(Request $request, User $user, UserRepository $UserRepository): Response
-    {
-        return $this->render('profil/profil.html.twig', [
-            'user' => $user,
-        ]);
     }
+    // Editer nom d'utilisateur
+    #[Route('/edit', name: 'app_profil_edit')]
+    public function edit(Request $request, UserRepository $UserRepository): Response
+    {
+        // Si pas connecté, redirection vers la page de connexion
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        } else{
+            $user = $this->getUser();
+            return $this->render('profil/edit.html.twig', [
+                'user' => $user,
+            ]);
+        }
+    }
+    
+
 }

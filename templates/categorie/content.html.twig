@@ -18,11 +18,11 @@
 {% for article in articles %}
 {% if article.categorie == categorie %}
     <div>
-        {# Si utilisateur admin, afficher les boutons #}
-        {% if app.user and app.user.username=='admin' %}
+        {# Si utilisateur admin, ou si l'auteur du post est égal à l'utilisateur, afficher les boutons #}
+        {% if is_granted('ROLE_ADMIN') or article.auteur == app.user %}
             <admin>
-                <span class="icon"><i class="fa-solid fa-trash"></i></span>
-                <span class="icon"><i class="fa-solid fa-edit"></i></span>
+                <a href="{{path('app_accueil')}}article/{{article.id}}/delete"><span class="icon"><i class="fa-solid fa-trash"></i></span></a>
+                 <a href="{{path('app_accueil')}}article/{{article.id}}/edit"><span class="icon"><i class="fa-solid fa-edit"></i></span></a>
             </admin>
         {% endif %}
         <h3>{{article.titre}}</h3>
@@ -32,4 +32,6 @@
 {% endif %}
 {% endfor %}
 </div>
+<div class="add-article"><a href="{{path('app_article_new')}}" class="button">Ajouter un article <i class="fa-solid fa-plus"></i></div>
+
 {% endblock %}

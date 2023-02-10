@@ -5,4 +5,11 @@
 {% block body %}
 <h1>{{article.titre}}</h1>
 <p>{{article.message}}</p>
+<div class="divider"></div>
+<h2>Informations : </h2>
+<p>Article écrit le {{article.date|date('d/m/Y')}}</p>
+<p> Article écrit par {{article.auteur.username}}</p>
+<div class="divider"></div>
+<h2>Réponses : </h2>
+<div class="reponse"></div>
 {% endblock %}
